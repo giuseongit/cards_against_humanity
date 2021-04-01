@@ -45,6 +45,17 @@ $ foreman start web=1,worker=1
 
 5. Open a browser to [http://localhost:3000](http://localhost:3000)
 
+You can even use the dockerized development version to avoid installing dependencies!
+
+Simply run:
+
+```sh
+$ docker/build && docker/run
+```
+
+and, once inside the container, run bundle install, yarn install and continue from point 3.
+The exposed container port are `8585` (running `bundle exec rails server`) or `8686` (running `foreman`)
+
 ## Running the test suite
 
 ```sh

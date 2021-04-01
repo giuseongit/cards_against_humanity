@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -eou pipefail
+HERE=$(cd "$(dirname "$0")" && pwd -P)/${0##*/}
+REPO=$(dirname "${HERE}")/..
+
+container_name="cah-dev"
+
+# container_exists returns with success if the container ($1) exists
+function container_exists() {
+    docker container inspect "${1}" > /dev/null 2>&1
+    return $?
+}
+
+function container_create() {
+    docker create -p 8585:3000 -p 8686:5000 --volume $REPO:/app --name=${1} --tty "${2}" /bin/bash
+}
+
+# container_running returns with success if the container ($1) is running
+function container_running() {
+    docker container ls --format="{{ .Names }}" | grep "${1}" > /dev/null
+}
+
+function container_start() {
+    docker container start "${1}" >/dev/null
+}
+
+function container_run_command() {
+    docker container exec --interactive --tty "${container_name}" "${1}"
+}
+
+container_exists ${container_name} && exists=1 || exists=0
+if [[ ${exists} == 0 ]]; then
+    container_create ${container_name} cah:dev
+fi
+
+container_running "${container_name}" && running=1 || running=0
+if [[ ${running} == 0 ]]; then
+    docker container start "${container_name}" >/dev/null
+    trap "echo stopping container;docker container stop ${container_name} >/dev/null" EXIT
+fi
+
+container_run_command "bash"

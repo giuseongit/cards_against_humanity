@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -eou pipefail
+HERE=$(cd "$(dirname "$0")" && pwd -P)/${0##*/}
+REPO=$(dirname "${HERE}")/..
+
+docker build -t cah:dev $REPO/docker
