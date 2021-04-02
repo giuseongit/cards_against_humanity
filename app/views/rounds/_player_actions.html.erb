@@ -1,6 +1,6 @@
 <div class="list-group">
   <%= link_to short_game_url(@game), class: 'list-group-item list-group-item-action' do %>
-    Invite people to this game:
+    Invita amici a questa partita:
     <%= short_game_url(@game).remove('http://').remove('https://www.') %>
   <% end %>
 
@@ -12,15 +12,15 @@
       <% if @current_player.expand_hand? %>
         Collapse your cards
       <% else %>
-        Spread your cards
+        Vedi tutte le carte
       <% end %>
     <% end %>
   <% end %>
 
-  <%= link_to 'End this round without a winner',
+  <%= link_to 'Termina il round senza un vincitore',
     end_game_round_path(@game),
     method: :post,
     class: 'list-group-item list-group-item-action',
-    data: { confirm: 'Are you sure you want to end this round for all players?' }
+    data: { confirm: 'Sei sicuro di voler terminare il round per tutti i giocatori?' }
   %>
 </div>

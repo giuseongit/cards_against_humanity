@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cardigans Humility.online</title>
+    <title>Carte contro l'umiltà</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +14,7 @@
 
   <body>
     <nav class="navbar">
-      <a class="navbar-brand" href="/">Cardigans Humility.online</a>
+      <a class="navbar-brand" href="/">Carte contro l'umiltà</a>
     </nav>
 
     <main role="main">
@@ -24,25 +24,21 @@
     <footer class="container small text-muted text-center">
       <div class='divider'></div>
       <p>
-        Put together by
+        Traduzione in italiano da
+        <a href='http://github.com/giuseongit'>Giuseppe Pagano</a>
+        dell'originale fatto da
         <a href='http://kevinbongart.net'>Kevin Bongart</a>
-        so he could play his beloved game with friends during tough times.
 
-        Not affiliated with the official
+        Nessuna affiliazione/sponsorizzazione dalla società
         <a href="https://cardsagainsthumanity.com">Cards Against Humanity</a>
-        company, but you should absolutely
-        <a href='https://store.cardsagainsthumanity.com'>buy their game</a> because it's a lot more fun in person.
-
-        Remixed under
-        <a href='https://creativecommons.org/licenses/by-nc-sa/2.0/'>Creative Commons BY-NC-SA 2.0 license</a>.
-
-        <a href="https://github.com/KevinBongart/cards_against_humanity">Check out the source code on GitHub</a>.
+        , ma dovreste assolutamente
+        <a href='https://store.cardsagainsthumanity.com'>comprare il gioco</a> perchè è fottutamente divertente.
 
         <% if @current_player %>
-          <%= link_to 'Click here to sign out',
+          <%= link_to 'Clicca per uscire',
             @current_player,
             method: :delete,
-            data: { confirm: 'Are you sure you want to sign out?' }
+            data: { confirm: 'Sei sicuro?' }
           %>.
         <% end %>
       </p>

@@ -2,7 +2,7 @@
   <%= form_with(model: @player) do |form| %>
     <% if @player.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@player.errors.count, "error") %> prohibited this game from being saved:</h2>
+        <h2><%= pluralize(@player.errors.count, "error") %> impossibile salvare:</h2>
 
         <ul>
           <% @player.errors.full_messages.each do |message| %>
@@ -13,12 +13,12 @@
     <% end %>
 
     <div class="form-group">
-      <%= form.label :name, 'How should we call you?' %>
+      <%= form.label :name, 'Come vuoi chiamarti?' %>
       <%= form.text_field :name, class: 'form-control' %>
     </div>
 
     <div class="actions">
-      <%= form.submit "Let's go", class: 'btn btn-primary' %>
+      <%= form.submit "Inizia", class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>

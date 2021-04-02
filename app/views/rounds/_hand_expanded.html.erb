@@ -13,7 +13,7 @@
           </div>
 
           <% if @round.playing_black_card? && @submission.blank? %>
-            <%= link_to 'Play this card',
+            <%= link_to 'Gioca questa carta',
               play_card_game_round_path(@game, card_id: card),
               method: :post,
               class: 'card-footer'

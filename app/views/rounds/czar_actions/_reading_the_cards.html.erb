@@ -32,7 +32,7 @@
 
       <% if submission == @submissions.last %>
         <div class="card-footer">
-          <%= link_to 'Award',
+          <%= link_to 'Scegli come vincitore',
             advance_game_round_path(@game, submission_id: submission),
             method: :post,
             class: 'stretched-link'

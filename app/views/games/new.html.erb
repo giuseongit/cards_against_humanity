@@ -1,15 +1,14 @@
 <div class="container">
   <p>
-    An unofficial online version of the
-    <a href="https://cardsagainsthumanity.com">Cards Against Humanity</a>
-    game. Pairs well with friends, booze and video chat.
+    Una versione non ufficiale di
+    <a href="https://cardsagainsthumanity.com">Carte Contro L'umanità</a>
   </p>
 
   <% if @current_player %>
     <p>Hey <%= @current_player %>.</p>
 
     <% if @current_player.game %>
-      <%= link_to 'Back to your game',
+      <%= link_to 'Torna al gioco',
         @current_player.game,
         class: 'btn btn-primary btn-lg btn-block mb-2'
       %>
@@ -17,13 +16,13 @@
   <% end %>
 
   <%= form_with model: @game do |form| %>
-    <%= form.submit 'Start a new game',
+    <%= form.submit 'Inizia un nuovo gioco',
       class: 'btn btn-primary btn-lg btn-block'
     %>
 
     <div class="mt-3" data-controller="options">
       <a href="#" data-action="click->options#toggle" data-target="options.link">
-        Click here for additional options
+        Clicca qui per opzioni aggiuntive
       </a>
 
       <div class="collapse mt-2" data-target="options.list">
@@ -41,15 +40,15 @@
   <% end %>
 
   <div class="mt-3">
-    <p>Or join an existing game:</p>
+    <p>Oppure unisciti ad una partita in corso:</p>
 
     <%= form_with scope: :game, url: find_games_path, class: 'form-inline' do |form| %>
 
       <div class="form-group mb-0 mr-2">
-        <%= form.text_field :slug, class: 'form-control', placeholder: 'Game code, like ABC123' %>
+        <%= form.text_field :slug, class: 'form-control', placeholder: 'Codice (es. ABC123)' %>
       </div>
 
-      <%= form.submit 'Join', class: 'btn btn-primary ' %>
+      <%= form.submit 'Unisciti', class: 'btn btn-primary ' %>
     <% end %>
   </div>
 </div>

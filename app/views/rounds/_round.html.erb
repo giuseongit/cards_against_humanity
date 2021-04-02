@@ -1,6 +1,6 @@
 <div id="round">
   <% if @round.ended? %>
-    <p>And the winner is…</p>
+    <p>Il vincitore è…</p>
 
     <% if @winning_submission %>
       <div class="card winner">
@@ -10,19 +10,19 @@
       </div>
 
       <p>
-        Card Czar <%= @round.czar %> chose
-        <strong><%= @winning_submission.player %></strong>'s
-        tasteless card.
+        Il round master <%= @round.czar %> ha scelto la carta di
+        <strong><%= @winning_submission.player %></strong>
+        come vincente.
 
         <% unless @game.mc_czar_option? %>
-          The next Card Czar is
+          Il prossimo round master è
           <strong><%= @game.next_czar %></strong>.
         <% end %>
       </p>
     <% else %>
       <p>
         <strong>No one.</strong>
-        The next Card Czar is
+        Il prossimo round master è
         <strong><%= @game.next_czar %></strong>.
       </p>
     <% end %>
@@ -30,7 +30,7 @@
     <% if @current_player == @game.next_czar %>
       <h2>
         <strong>
-          <%= button_to "I'm ready",
+          <%= button_to "Sono pronto",
             game_round_path(@game),
             class: 'btn btn-primary btn-lg btn-block'
           %>
